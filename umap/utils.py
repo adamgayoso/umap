@@ -130,7 +130,7 @@ def rejection_sample(n_samples, pool_size, rng_state):
     return result
 
 
-@numba.njit()
+@numba.njit("f8[:, :, :](i8,i8)")
 def make_heap(n_points, size):
     """Constructor for the numba enabled heap objects. The heaps are used
     for approximate nearest neighbor search, maintaining a list of potential
@@ -153,7 +153,7 @@ def make_heap(n_points, size):
     -------
     heap: An ndarray suitable for passing to other numba enabled heap functions.
     """
-    result = np.zeros((3, int(n_points), int(size)), dtype=np.float64)
+    result = np.zeros((3, n_points, size)), dtype=np.float64)
     result[0] = -1
     result[1] = np.infty
     result[2] = 0
