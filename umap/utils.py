@@ -153,7 +153,7 @@ def make_heap(n_points, size):
     -------
     heap: An ndarray suitable for passing to other numba enabled heap functions.
     """
-    result = np.zeros((3, int(n_points), int(size)), dtype=np.float64)
+    result = np.zeros((int(3), int(n_points), int(size)), dtype=np.float64)
     result[0] = -1
     result[1] = np.infty
     result[2] = 0
